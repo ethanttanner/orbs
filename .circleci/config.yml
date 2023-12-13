@@ -12,9 +12,9 @@ jobs:
           command: npm install
 
   notify-slack:
-    docker:
-      - image: 'cimg/base:stable'
-    steps:
+      docker:
+        - image: 'cimg/base:stable'
+      steps:
       - run:
           name: Notify Slack
           command: |
@@ -31,4 +31,4 @@ workflows:
   send-notification:
     jobs:
       - notify-slack:
-          context: slack-secrets
+        context: slack-secrets
